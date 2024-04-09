@@ -4,9 +4,12 @@ import Image from "next/image";
 import { LOGO } from "@/app/constants";
 import { useState } from "react";
 import { cn } from "@/utils/utils";
+import { response } from "@/utils/rawData";
+import Link from "next/link";
 
 export default function Home() {
   const [selectedFont, setSelectedFont] = useState("Inter");
+  const data = response[0];
   return (
     <div className={cn({ "font-lora": selectedFont === "Lora" }, { "font-inter": selectedFont === "Inter" }, { "font-inconsolata": selectedFont === "Inconsolata" })}>
       <header className={"flex items-center gap-x-[95.95px]"}>
@@ -50,11 +53,61 @@ export default function Home() {
             />
           </svg>
         </section>
-        <section>Display and Play Word</section>
-        <section>Noun</section>
-        <section>Verb</section>
+
+        <section className={"flex items-center pt-6"}>
+          <div>
+            <h1 className={"text-[32px] font-bold"}>{data.word}</h1>
+            <span className={"pt-2 text-project-purple"}>{data.phonetic}</span>
+          </div>
+          <img className={"ml-auto h-[48px] w-[48px]"} src={"/icon-play.svg"} alt={"Audio"} />
+        </section>
+
+        <section>
+          {data.meanings.map((meaning, index) => (
+            <article key={index + meaning}>
+              <div className={"pt-[32px]"}>
+                <div className={"flex items-center gap-x-4"}>
+                  <h2 className={"text-[18px] font-bold italic"}>{meaning.partOfSpeech}</h2>
+                  <div className={"h-[1px] w-full bg-plaster"}></div>
+                </div>
+                <div>
+                  <h3 className={"pt-[32px] text-bank-vault"}>Meaning</h3>
+                  <ul className={"ml-[18px] list-outside list-disc space-y-[13px]"}>
+                    {meaning.definitions.map((def, index) => (
+                      <li key={index} className={"text-[15px] leading-[24px] text-carbon-fiber marker:text-project-purple first:pt-[17px]"}>
+                        {def.definition}
+                        {def.example && (
+                          <>
+                            <span className={"block pt-[13px] text-[15px] text-bank-vault"}>"{def.example}"</span>
+                          </>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {meaning.synonyms.length > 0 && (
+                    <>
+                      <div className={"flex gap-x-6 pt-6"}>
+                        <span className={"text-bank-vault"}>Synonyms</span>
+                        <span className={"font-bold text-project-purple"}>{meaning.synonyms}</span>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+            </article>
+          ))}
+        </section>
       </main>
-      <footer></footer>
+      <footer className={"pb-[85px]"}>
+        <div className={"mt-[32px] h-[1px] w-full bg-plaster"}></div>
+        <div className={"pt-6"}>
+          <span className={"text-[15px] text-bank-vault"}>Source</span>
+          <Link className={"block"} href={data.sourceUrls}>
+            <span className={"text-carbon-fiber"}>{data.sourceUrls}</span>
+          </Link>
+        </div>
+      </footer>
     </div>
   );
 }
