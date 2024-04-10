@@ -25,7 +25,7 @@ export default function Home({ word }) {
       <Header selectedFont={selectedFont} setSelectedFont={setSelectedFont} />
       <main className={"pt-6"}>
         <Search formAction={formAction} />
-        <WordSection word={data?.word} phonetic={data?.phonetic} />
+        <WordSection word={data?.word} phonetic={data?.phonetic} phonetics={data?.phonetics} />
         <MeaningList data={data} />
       </main>
       <Footer sourceUrls={data?.sourceUrls} />
