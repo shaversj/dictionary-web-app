@@ -21,7 +21,7 @@ export default function Home({ word }) {
   const data = state[0] || response[0];
 
   return (
-    <div className={cn({ "font-lora": selectedFont === "Lora" }, { "font-inter": selectedFont === "Inter" }, { "font-inconsolata": selectedFont === "Inconsolata" })}>
+    <div className={cn("bg-white dark:bg-gray2", { "font-lora": selectedFont === "Lora" }, { "font-inter": selectedFont === "Inter" }, { "font-inconsolata": selectedFont === "Inconsolata" })}>
       <Header selectedFont={selectedFont} setSelectedFont={setSelectedFont} />
       <main className={"pt-6"}>
         <Search formAction={formAction} />

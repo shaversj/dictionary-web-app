@@ -7,14 +7,14 @@ export default function MeaningList({ data }) {
             <article key={index + meaning}>
               <div className={"pt-[32px]"}>
                 <div className={"flex items-center gap-x-4"}>
-                  <h2 className={"text-[18px] font-bold italic md:text-[24px]"}>{meaning.partOfSpeech}</h2>
+                  <h2 className={"text-[18px] font-bold italic md:text-[24px] dark:text-white"}>{meaning.partOfSpeech}</h2>
                   <div className={"h-[1px] w-full bg-plaster"}></div>
                 </div>
                 <div>
                   <h3 className={"pt-[32px] text-bank-vault md:text-[20px] md:leading-[24px]"}>Meaning</h3>
                   <ul className={"ml-[18px] list-outside list-disc space-y-[13px]"}>
                     {meaning.definitions.map((def, index) => (
-                      <li key={index} className={"md:leading-[24px text-[15px] leading-[24px] text-carbon-fiber marker:text-project-purple first:pt-[17px] md:text-[18px]"}>
+                      <li key={index} className={"md:leading-[24px text-[15px] leading-[24px] text-carbon-fiber marker:text-project-purple first:pt-[17px] md:text-[18px] dark:text-white"}>
                         {def.definition}
                         {def.example && (
                           <>

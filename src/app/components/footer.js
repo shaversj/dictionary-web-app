@@ -8,7 +8,7 @@ export default function Footer({ sourceUrls }) {
         <div className={"pt-6 md:flex md:items-center md:gap-x-[20px]"}>
           <span className={"text-[14px] text-bank-vault underline"}>Source</span>
           <Link className={"block"} href={sourceUrls}>
-            <span className={"text-[14px] text-carbon-fiber"}>{sourceUrls}</span>
+            <span className={"text-[14px] text-carbon-fiber dark:text-white"}>{sourceUrls}</span>
           </Link>
         </div>
       </footer>

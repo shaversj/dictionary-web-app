@@ -8,7 +8,7 @@ export default function WordSection({ word, phonetic, phonetics }) {
     <>
       <section className={"flex items-center pt-6"}>
         <div>
-          <h1 className={"text-[32px] font-bold md:text-[64px] md:leading-[77px]"}>{word}</h1>
+          <h1 className={"text-[32px] font-bold md:text-[64px] md:leading-[77px] dark:text-white"}>{word}</h1>
           <span className={"pt-2 text-project-purple md:text-[24px] md:leading-[29px]"}>{phonetic}</span>
         </div>
         <button

@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${lora.variable} ${inconsolata.variable} mx-auto px-6 pt-6 md:w-[689px] md:px-[40px] md:pt-[58px] lg:w-[737px]`}>{children}</body>
+      <body className={`${inter.variable} ${lora.variable} ${inconsolata.variable} mx-auto px-6 pt-6 md:w-[689px] md:px-[40px] md:pt-[58px] lg:w-[737px] dark:bg-gray2`}>{children}</body>
     </html>
   );
 }
