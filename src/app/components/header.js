@@ -1,16 +1,30 @@
+import { cn } from "@/utils/utils";
+
 export default function Header({ selectedFont, setSelectedFont }) {
+  const font_table = {
+    Inter: "Sans Serif",
+    Lora: "Serif",
+    Inconsolata: "Mono",
+  };
+
   return (
     <>
       <header className={"flex items-center gap-x-[95.95px]"}>
         <img className={"h-[32px] w-[28.05px] md:h-[36.5px] md:w-[32px]"} src={"/logo.svg"} alt={"Dictionary logo"} />
         <nav className={"ml-auto flex items-center"}>
           <button className={"group relative flex items-center gap-x-4"}>
-            <span className={"text-[14px] font-bold text-carbon-fiber"}>{selectedFont}</span>
+            <span className={"text-[14px] font-bold text-carbon-fiber md:text-[18px]"}>{font_table[selectedFont]}</span>
             <img src={"/icon-arrow-down.svg"} alt={"Arrow down"} />
-            <ul className={"absolute right-0 top-5 hidden w-32 rounded border group-hover:block"}>
-              <li onClick={() => setSelectedFont("Inter")}>Inter</li>
-              <li onClick={() => setSelectedFont("Lora")}>Lora</li>
-              <li onClick={() => setSelectedFont("Inconsolata")}>Inconsolata</li>
+            <ul className={"absolute right-0 top-6 z-10 hidden w-[183px] space-y-4 rounded-xl border bg-white p-6 text-left text-[18px] group-hover:block"}>
+              <li onClick={() => setSelectedFont("Inter")} className={cn("font-inter", { "font-bold": selectedFont === "Inter" })}>
+                Sans Serif
+              </li>
+              <li onClick={() => setSelectedFont("Lora")} className={cn("font-lora", { "font-bold": selectedFont === "Lora" })}>
+                Serif
+              </li>
+              <li onClick={() => setSelectedFont("Inconsolata")} className={cn("font-inconsolata", { "font-bold": selectedFont === "Inconsolata" })}>
+                Mono
+              </li>
             </ul>
           </button>
           <svg className={"ml-4 mr-2"} width="1" height="32" viewBox="0 0 1 32" fill="none" xmlns="http://www.w3.org/2000/svg">

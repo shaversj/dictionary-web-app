@@ -1,8 +1,8 @@
 export default function Search({ formAction }) {
   return (
     <section>
-      <form className={"flex h-[48px] w-full items-center rounded-lg bg-lighthouse px-6"} action={formAction}>
-        <input name={"word"} type={"text"} className={"bg-lighthouse font-bold text-carbon-fiber outline-none outline-0 placeholder:bg-lighthouse"}></input>
+      <form className={"flex h-[48px] w-full items-center rounded-2xl bg-lighthouse px-6 md:h-[64px]"} action={formAction}>
+        <input name={"word"} type={"text"} className={"bg-lighthouse font-bold text-carbon-fiber outline-none outline-0 placeholder:bg-lighthouse md:text-[20px]"}></input>
         <button className={"ml-auto"} type={"submit"}>
           <svg className={"ml-auto"} width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
