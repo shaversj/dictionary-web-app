@@ -24,7 +24,7 @@ export default function Home({ word }) {
     <div className={cn("bg-white dark:bg-gray2", { "font-lora": selectedFont === "Lora" }, { "font-inter": selectedFont === "Inter" }, { "font-inconsolata": selectedFont === "Inconsolata" })}>
       <Header selectedFont={selectedFont} setSelectedFont={setSelectedFont} />
       <main className={"pt-6"}>
-        <Search formAction={formAction} />
+        <Search formAction={formAction} isValid={state?.success} />
         <WordSection word={data?.word} phonetic={data?.phonetic} phonetics={data?.phonetics} />
         <MeaningList data={data} />
       </main>

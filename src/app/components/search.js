@@ -1,13 +1,13 @@
-export default function Search({ formAction }) {
+export default function Search({ formAction, isValid = true }) {
   return (
     <section>
-      <form className={"flex h-[48px] w-full items-center rounded-2xl  border border-white bg-lighthouse px-6 focus-within:border focus-within:border-project-purple md:h-[64px] dark:border-gray2 dark:bg-umbra"} action={formAction}>
+      <form action={formAction} className={"flex h-[48px] w-full items-center rounded-2xl border border-white bg-lighthouse px-6 focus-within:border focus-within:border-project-purple md:h-[64px] dark:border-gray2 dark:bg-umbra"}>
         <input
           placeholder={"Search for any word..."}
           name={"word"}
           type={"text"}
           className={
-            "w-full bg-lighthouse font-bold text-carbon-fiber outline-none outline-0 placeholder:bg-lighthouse placeholder:font-semibold placeholder:text-[#c2c2c2] md:text-[20px]   dark:bg-umbra dark:text-white dark:placeholder:bg-umbra dark:placeholder:text-[#575757]"
+            "w-full bg-lighthouse font-bold text-carbon-fiber outline-none outline-0 placeholder:bg-lighthouse placeholder:font-semibold placeholder:text-[#c2c2c2] md:text-[20px] dark:bg-umbra dark:text-white dark:placeholder:bg-umbra dark:placeholder:text-[#575757]"
           }
         ></input>
         <button className={"ml-auto"} type={"submit"}>
@@ -19,6 +19,7 @@ export default function Search({ formAction }) {
           </svg>
         </button>
       </form>
+      {!isValid && <p className="group-invalid:text-red-800">Whoops, can't be empty...</p>}
     </section>
   );
 }
