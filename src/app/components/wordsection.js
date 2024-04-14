@@ -1,8 +1,14 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+
 export default function WordSection({ word, phonetic, phonetics }) {
+  const audioRef = useRef(null);
   const audioURL = phonetics?.map((phonetic) => phonetic.audio).filter((audio) => audio !== "")[0];
-  const audio = new Audio(audioURL);
+
+  useEffect(() => {
+    audioRef.current = new Audio(audioURL);
+  }, [audioURL]);
 
   return (
     <>
@@ -14,8 +20,8 @@ export default function WordSection({ word, phonetic, phonetics }) {
         <button
           className={"ml-auto"}
           onClick={() => {
-            audio.loop = false;
-            audio.play();
+            audioRef.current.loop = false;
+            audioRef.current.play();
           }}
         >
           <svg className={"group ml-auto h-[48px] w-[48px] md:h-[75px] md:w-[75px]"} viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg">

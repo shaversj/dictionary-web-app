@@ -1,25 +1,16 @@
 "use client";
 
-import { cn } from "@/utils/utils";
+import { cn } from "@/app/utils/utils";
 import { Switch } from "@headlessui/react";
 import { useState } from "react";
+import { fontMapping } from "@/app/utils/data";
 
 export default function Header({ selectedFont, setSelectedFont }) {
   const [darkMode, setDarkMode] = useState(false);
 
-  const font_table = {
-    Inter: "Sans Serif",
-    Lora: "Serif",
-    Inconsolata: "Mono",
-  };
-
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
-    if (!darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+    document.documentElement.classList.toggle("dark");
   };
 
   return (
@@ -28,7 +19,7 @@ export default function Header({ selectedFont, setSelectedFont }) {
         <img className={"h-[32px] w-[28.05px] md:h-[36.5px] md:w-[32px]"} src={"/logo.svg"} alt={"Dictionary logo"} />
         <nav className={"ml-auto flex items-center"}>
           <button className={"group relative flex items-center gap-x-4"}>
-            <span className={"text-[14px] font-bold text-carbon-fiber md:text-[18px] dark:text-white"}>{font_table[selectedFont]}</span>
+            <span className={"text-[14px] font-bold text-carbon-fiber md:text-[18px] dark:text-white"}>{fontMapping[selectedFont]}</span>
             <img src={"/icon-arrow-down.svg"} alt={"Arrow down"} />
             <ul className={"absolute right-0 top-6 z-10 hidden w-[183px] space-y-4 rounded-xl border bg-white p-6 text-left text-[18px] group-hover:block dark:bg-gray2 dark:text-white"}>
               <li onClick={() => setSelectedFont("Inter")} className={cn("font-inter", { "font-bold": selectedFont === "Inter" })}>
