@@ -18,7 +18,7 @@ export default function MeaningList({ data }) {
                         {def.definition}
                         {def.example && (
                           <>
-                            <span className={"block pt-[13px] text-[15px] text-bank-vault"}>"{def.example}"</span>
+                            <span className={"block pt-[13px] text-[15px] text-bank-vault"}>&quot;{def.example}&quot;</span>
                           </>
                         )}
                       </li>

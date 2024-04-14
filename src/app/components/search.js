@@ -25,7 +25,7 @@ export default function Search({ formAction, isValid = true }) {
           <img src={"/icon-search-old.svg"} alt={"search icon"} />
         </button>
       </form>
-      {!isValid && <p className="pt-[4px] text-[14px] leading-[24px] text-project-red group-invalid:text-red-800">Whoops, can't be empty...</p>}
+      {!isValid && <p className="pt-[4px] text-[14px] leading-[24px] text-project-red group-invalid:text-red-800">Whoops, can&apos;t be empty...</p>}
     </section>
   );
 }
